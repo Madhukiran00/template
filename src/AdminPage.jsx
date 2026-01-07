@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-// This is in-memory only, not localStorage
-let globalProducts = {
+// ✅ EXPORT IT
+export let globalProducts = {
   greenbottle: "https://parenus.com/products/95571236-694c-452e-a6b2-3c29fa455fb3"
 };
 
@@ -21,7 +21,7 @@ export default function AdminPage() {
       [productCode]: productLink
     };
 
-    globalProducts = { ...updated }; // update global mock data
+    globalProducts = { ...updated }; // updates shared data
     setProducts(updated);
     setProductCode("");
     setProductLink("");
@@ -54,16 +54,9 @@ export default function AdminPage() {
           Save Product
         </button>
 
-        <div className="mt-4 text-sm">
-          <strong>Saved Products:</strong>
-          <pre className="bg-gray-200 p-2 mt-2 rounded">
-            {JSON.stringify(products, null, 2)}
-          </pre>
-        </div>
-
-        <p className="mt-4 text-gray-600 text-sm">
-          The saved products are globally available for Transform Page.
-        </p>
+        <pre className="bg-gray-200 p-2 mt-2 rounded text-sm">
+          {JSON.stringify(products, null, 2)}
+        </pre>
       </div>
     </div>
   );
