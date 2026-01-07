@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-// ✅ EXPORT IT
+// EXPORT IT
 export let globalProducts = {
   greenbottle: "https://parenus.com/products/95571236-694c-452e-a6b2-3c29fa455fb3"
 };
